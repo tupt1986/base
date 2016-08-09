@@ -16,7 +16,10 @@ Route::get('/', function () {
 });
 
 Route::auth();
-
-Route::get('/users', 'UserController@index');
-
+Route::get('/users', [
+    'as' => 'users',
+    'uses' => 'UserController@index',
+    'middleware'=>'roles',
+    'roles'=>['Admin','Manager'],
+]);
 Route::get('/home', 'HomeController@index');

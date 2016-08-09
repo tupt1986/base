@@ -15,6 +15,15 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if($request->user()===null){
+            return response('Khong co quyen truy cap', 401);
+        }
+        $acction = $request->route()->getAction();
+        $roles = isset($acction['roles']) ? $acction['roles'] : null;
+
+        if ($request->user()->hasAnyRole($roles) || !$roles){
+            return $next($request);
+        }
+        return response("Khong co quyen truy cap111", 401);
     }
 }

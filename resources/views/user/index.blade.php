@@ -6,7 +6,7 @@
  * Time: 11:43 CH
  */
 ?>
-@extends('layouts.app')
+@extends('layouts.index')
 @section('content')
     <table>
         <thead>

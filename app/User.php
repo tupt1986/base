@@ -2,7 +2,11 @@
 
 namespace App;
 
+use App\Http\Requests\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use spec\Prophecy\Promise\RequiredArgumentException;
+
+use App\Role;
 
 class User extends Authenticatable
 {

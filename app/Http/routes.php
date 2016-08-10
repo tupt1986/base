@@ -16,10 +16,20 @@ Route::get('/', function () {
 });
 
 Route::auth();
+
 Route::get('/users', [
-    'as' => 'users',
     'uses' => 'UserController@index',
     'middleware'=>'roles',
     'roles'=>['Admin','Manager'],
 ]);
+
+Route::post('/users/assignroles',[
+    'uses' => 'UserController@assignRoles',
+    'as' => 'user.assignroles',
+    'middleware'=>'roles',
+    'roles'=>['Admin'],
+]);
+
+
+
 Route::get('/home', 'HomeController@index');

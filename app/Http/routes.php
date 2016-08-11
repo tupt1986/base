@@ -21,7 +21,7 @@ Route::get('/users', [
     'as'=>'users',
     'uses' => 'UserController@index',
     'middleware'=>'roles',
-    'roles'=>['Admin','Manager'],
+    'roles'=>['Admin'],
 ]);
 
 Route::post('/users/assignroles',[
@@ -30,6 +30,12 @@ Route::post('/users/assignroles',[
     'middleware'=>'roles',
     'roles'=>['Admin'],
 ]);
+Route::post('/users/{id_user}',[
+    'uses'=>'UserController@edit',
+    'as'=>'user.edit',
+    'middleaware'=>'roles',
+    'roles'=>['Admin'],
+    ]);
 
 
 

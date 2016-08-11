@@ -56,9 +56,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-inline top-v1-data">
-                            <li><a href="index.php"><i class="fa fa-home"></i></a></li>
-                            <li><a href="logout.php">Thoát</a></li>
-                            <li><a href="index.php?cat=login">Đăng nhập</a></li>
+                            <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
+                            @if (Auth::guest())
+                                <li><a href="{{ url('/login') }}">Đăng nhập</a></li>
+                            @else
+                                <li><a href="{{ url('/logout') }}">Thoát</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -73,7 +76,7 @@
                 <div class="navbar-header">
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="index.php">
+                            <a href="{{url('/')}}">
                                 <img id="logo-header" src="images/index.png" alt="Logo">
                             </a>
                         </div>
@@ -93,7 +96,7 @@
             <div class="collapse navbar-collapse navbar-responsive-collapse">
                 <div class="container">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="{{url("/")}}">HOME</a></li>
                         <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 Báo cáo - tổng hợp
@@ -148,14 +151,20 @@
             </div>
         </div>
     </div>
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-right">@yield('title')</h1>
+        </div>
+    </div>
+
+    <div class="container">
     <!-- Nội dung trang -->
-    @yield('content')
+        @yield('content')
+
     <!-- kết thúc nội dung trang-->
+    </div>
 </div>
-
 <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-
-
 <!------------------------------- Footer ----------------------------------------->
 <div class="breadcrumbs">
     <div class="container" align="right" style="vertical-align:middle; font-size:medium">

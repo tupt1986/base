@@ -18,34 +18,35 @@
 
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/style.css">
 
     <!-- CSS Header and Footer -->
-    <link rel="stylesheet" href="assets/css/headers/header-v4.css">
-    <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/headers/header-v4.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/footers/footer-v1.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="assets/plugins/animate.css">
-    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
-    <link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
-    <!--<link rel="stylesheet" href="assets/plugins/flexslider/flexslider.css">-->
-    <!--<link rel="stylesheet" href="assets/plugins/bxslider/jquery.bxslider.css">-->
-    <link rel="stylesheet" href="assets/plugins/fancybox/source/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css"
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/animate.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+<!--<link rel="stylesheet" href="{{url('/')}}/assets/plugins/flexslider/flexslider.css">-->
+<!--<link rel="stylesheet" href="{{url('/')}}/assets/plugins/bxslider/jquery.bxslider.css">-->
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/fancybox/source/jquery.fancybox.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/plugins/revolution-slider/rs-plugin/css/settings.css"
+          type="text/css"
           media="screen">
 
 
     <!-- CSS Pages Style -->
-    <link rel="stylesheet" href="assets/css/pages/page_one.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/pages/page_one.css">
     <!-- CSS Theme -->
-    <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
-    <link rel="stylesheet" href="assets/css/theme-skins/dark.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/theme-skins/dark.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/custom.css">
 <body>
 <div class="wrapper">
     <!--=== Header ===-->
@@ -77,11 +78,12 @@
                     <div class="row">
                         <div class="col-md-2">
                             <a href="{{url('/')}}">
-                                <img id="logo-header" src="images/index.png" alt="Logo">
+                                <img id="logo-header" src="{{url('/')}}/images/index.png" alt="Logo">
                             </a>
                         </div>
                         <div class="col-md-10">
-                            <a href="#"><img class="header-banner img-responsive" src="images/adds.jpg" width="1000"
+                            <a href="#"><img class="header-banner img-responsive" src="{{url('/')}}/images/adds.jpg"
+                                             width="1000"
                                              alt=""></a>
                         </div>
                     </div>
@@ -158,18 +160,19 @@
     </div>
 
     <div class="container">
-    <!-- Nội dung trang -->
-        @yield('content')
+        <!-- Nội dung trang -->
+    @yield('content')
 
     <!-- kết thúc nội dung trang-->
     </div>
 </div>
-<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="{{url('/')}}/assets/plugins/back-to-top.js"></script>
+
 <!------------------------------- Footer ----------------------------------------->
 <div class="breadcrumbs">
     <div class="container" align="right" style="vertical-align:middle; font-size:medium">
         BƯU ĐIỆN TỈNH NGHỆ AN - Phòng Kỹ Thuật Nghiệp Vụ - COPYRIGHT 2016
-        <img src="images/137x137.png" alt="Logo">
+        <img src="{{url('/')}}/images/137x137.png" alt="Logo">
     </div>
 </div>
 </body>

@@ -30,12 +30,33 @@ Route::post('/users/assignroles',[
     'middleware'=>'roles',
     'roles'=>['Admin'],
 ]);
-Route::post('/users/{id_user}',[
+Route::get('/users/{id_user}',[
     'uses'=>'UserController@edit',
-    'as'=>'user.edit',
-    'middleaware'=>'roles',
+    'as'=>'user.update',
+    'middleware'=>'roles',
     'roles'=>['Admin'],
-    ]);
+]);
+
+Route::patch('/users/{id_user}',[
+    'uses'=>'UserController@update',
+    'as'=>'user.update',
+    'middleware'=>'roles',
+    'roles'=>['Admin'],
+]);
+
+Route::delete('/users/{id_user}',[
+    'uses'=>'UserController@destroy',
+    'as'=>'user.destroy',
+    'middleware'=>'roles',
+    'roles'=>['Admin'],
+]);
+
+Route::post('/users/{id_user}',[
+    'uses'=>'UserController@resetpassword',
+    'as'=>'user.resetpassword',
+    'middleware'=>'roles',
+    'roles'=>['Admin'],
+]);
 
 
 

@@ -17,7 +17,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        flash()->overlay('Modal Message', 'Modal Title');
         return view("user.index")->with("users", $users);
     }
 
@@ -38,6 +37,7 @@ class UserController extends Controller
         if($request['role_admin']){
             $user->roles() -> attach(Role::where('name','Admin')->first());
         }
+        flash()->overlay('Thay đổi quyền truy cập tài khoản <b>'.$user->username.'</b> thành công.','Thay đổi quyền truy cập.');
         return redirect()->back();
     }
 
@@ -61,6 +61,7 @@ class UserController extends Controller
     public function update($id, Request $request){
         $user = User::findOrFail($id);
         $user -> update($request->all());
+        flash()->overlay('Thông tin tài khoản <b>'.$user->username.'</b> đã thay đổi thành công.','Thay đổi thông tin người dùng.');
         return redirect('/users');
     }
 
@@ -68,12 +69,14 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user -> password = bcrypt('123456');
         $user -> update();
+        flash()->overlay('Mật khẩu tài khoản <b>'.$user->username.'</b> đã được đặt về mặc định là 123456. ','Thiết lập lại mật khẩu');
         return redirect('/users');
     }
 
     public function destroy($id){
         $user = User::findOrFail($id);
         $user -> delete();
+        flash()->overlay('Tài khoản <b>'.$user->username.'</b> đã được xóa. ','Xóa tài khoản');
         return redirect('/users');
     }
 }

@@ -166,7 +166,15 @@
     <!-- kết thúc nội dung trang-->
     </div>
 </div>
+
+@include('flash::message')
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{url('/')}}/assets/plugins/back-to-top.js"></script>
+
+<script>
+    $('#flash-overlay-modal').modal();
+</script>
 
 <!------------------------------- Footer ----------------------------------------->
 <div class="breadcrumbs">

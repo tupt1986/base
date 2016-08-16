@@ -76,11 +76,24 @@ class UserController extends Controller
     public function destroy($id){
         $user = User::findOrFail($id);
         $user -> delete();
-        flash()->overlay('Tài khoản <b>'.$user->username.'</b> đã được xóa. ','Xóa tài khoản');
+        flash()->overlay('Tài khoản <b>'.$user->username.'</b> đã được xóa thành công. ','Xóa tài khoản');
         return redirect('/users');
     }
 
     public function create(){
         return view('user.create');
+    }
+
+    public function store(Request $request){
+        $user = new User;
+        $user -> name = $request['name'];
+        $user -> username = $request['username'];
+        $user -> password = bcrypt('123456');
+
+        $user -> save();
+        $user->roles() -> attach(Role::where('name','User')->first());
+
+        flash()->overlay('Tài khoản <b>'.$user->username.'</b> đã được thêm mới thành công. ','Thêm mới tài khoản');
+        return redirect('/users');
     }
 }

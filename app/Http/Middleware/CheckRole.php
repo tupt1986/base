@@ -16,7 +16,8 @@ class CheckRole
     public function handle($request, Closure $next)
     {
         if($request->user()===null){
-            return response('Khong co quyen truy cap', 401);
+            flash()->overlay('Yêu cầu đăng nhập để thực hiện chức năng.','Đăng nhập.');
+            return redirect('/login');
         }
         $acction = $request->route()->getAction();
         $roles = isset($acction['roles']) ? $acction['roles'] : null;
@@ -24,6 +25,8 @@ class CheckRole
         if ($request->user()->hasAnyRole($roles) || !$roles){
             return $next($request);
         }
-        return response("Khong co quyen truy cap111", 401);
+
+        flash()->overlay('Tài khoản không có quyền thực hiện chức năng này.','Không có quyền truy cập.');
+        return redirect('/');
     }
 }

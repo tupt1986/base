@@ -29,14 +29,14 @@ Route::get('/users', [
     'roles'=>['Admin'],
 ]);
 //create user
-Route::get('\users\create',[
+Route::get('/users/create',[
     'uses'=>'UserController@create',
     'as'=>'user.create',
     'middleware'=>'roles',
     'roles'=>['Admin'],
 
 ]);
-Route::post('\users',[
+Route::post('/users/create',[
     'uses'=>'UserController@store',
     'as'=>'user.store',
     'middleware'=>'roles',

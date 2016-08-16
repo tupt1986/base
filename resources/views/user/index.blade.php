@@ -4,9 +4,9 @@
     {{Session::get('msg')}}
 @endif
 @section('title')
-    QUẢN LÝ NGƯỜI DÙNG
+    QUẢN LÝ NGƯỜI DÙNG &nbsp;&nbsp;&nbsp;
     <button class="btn-u btn-brd rounded-4x" onclick="window.open('{{url('/users/create')}}', '_self')">
-        <i class="icon-user-follow"></i> Thêm
+        <i class="icon-user-follow"></i> Thêm mới
     </button>
 @endsection
 

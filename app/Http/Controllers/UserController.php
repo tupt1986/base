@@ -79,4 +79,8 @@ class UserController extends Controller
         flash()->overlay('Tài khoản <b>'.$user->username.'</b> đã được xóa. ','Xóa tài khoản');
         return redirect('/users');
     }
+
+    public function create(){
+        return view('user.create');
+    }
 }

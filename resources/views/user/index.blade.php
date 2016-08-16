@@ -3,7 +3,12 @@
 @if(Session::has('msg'))
     {{Session::get('msg')}}
 @endif
-@section('title', 'QUẢN TRỊ NGƯỜI DÙNG')
+@section('title')
+    QUẢN LÝ NGƯỜI DÙNG
+    <button class="btn-u btn-brd rounded-4x" onclick="window.open('{{url('/users/create')}}', '_self')">
+        <i class="icon-user-follow"></i> Thêm
+    </button>
+@endsection
 
 @section('content')
     <div class="headline">

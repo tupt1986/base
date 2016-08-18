@@ -33,16 +33,22 @@
         <tbody>
         @foreach($users as $user)
             <tr>
-                <form action="{{route('user.assignroles')}}" method="post">
+                <form action="{{route('user.assignroles')}}" method="post" >
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->username}}<input type="hidden" name="username" value="{{$user->username}}"></td>
-                    <td><input type="checkbox" {{$user->hasRole('User') ? 'checked' : ''}} name="role_user"
-                               id="role_user"></td>
-                    <td><input type="checkbox" {{$user->hasRole('Manager') ? 'checked' : ''}} name="role_manager"
-                               id="role_manager"></td>
-                    <td><input type="checkbox" {{$user->hasRole('Admin') ? 'checked' : ''}} name="role_admin"
-                               id="role_admin"></td>
+                    <td>
+                        <input type="checkbox" {{$user->hasRole('User') ? 'checked' : ''}} name="role_user"
+                               id="role_user">
+                    </td>
+                    <td>
+                        <input type="checkbox" {{$user->hasRole('Manager') ? 'checked' : ''}} name="role_manager"
+                               id="role_manager">
+                    </td>
+                    <td>
+                        <input type="checkbox" {{$user->hasRole('Admin') ? 'checked' : ''}} name="role_admin"
+                               id="role_admin">
+                    </td>
                     {{csrf_field()}}
                     <td align="center">
                         <button type="submit" class="btn btn-success btn-xs">Thay đổi quyền</button>
@@ -54,7 +60,7 @@
                     </button>
                 </td>
                 <td align="center">
-                    <form method="POST" action="{{route('user.destroy',$user->id)}}">
+                    <form method="POST" action="{{route('user.destroy',$user->id)}}" onsubmit="return ConfirmDelete();">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
                         <button type="submit" class="btn btn-success btn-xs">Xóa</button>
@@ -72,4 +78,14 @@
         @endforeach
         </tbody>
     </table>
+    <script>
+        function ConfirmDelete() {
+            var x = confirm("Chắc chắn muốn xóa người dùng?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+
+    </script>
 @endsection

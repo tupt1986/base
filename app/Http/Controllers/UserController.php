@@ -85,13 +85,29 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request,[
+           'name'=>'required|max:255',
+           'username'=>'required|unique:Users',
+        ],[
+            'name.required'=>'Nhập thông tin họ tên.',
+            'username.required'=>'Nhập thông tin tên đăng nhập.',
+            'username.unique'=>'Tên đăng nhập đã tồn tại trên hệ thông.',
+        ]);
         $user = new User;
         $user -> name = $request['name'];
         $user -> username = $request['username'];
         $user -> password = bcrypt('123456');
 
         $user -> save();
-        $user->roles() -> attach(Role::where('name','User')->first());
+        if($request['role_user']){
+            $user->roles() -> attach(Role::where('name','User')->first());
+        }
+        if($request['role_manager']){
+            $user->roles() -> attach(Role::where('name','Manager')->first());
+        }
+        if($request['role_admin']){
+            $user->roles() -> attach(Role::where('name','Admin')->first());
+        }
 
         flash()->overlay('Tài khoản <b>'.$user->username.'</b> đã được thêm mới thành công. ','Thêm mới tài khoản');
         return redirect('/users');
